@@ -1,22 +1,22 @@
 package com.frutydellys.characters;
 
-public class Inimigos {
+public class Inimigo {
     private String nome;
     private float ataque;
     private float defesa;
     private float vida;
     private float agilidade;
     private float gold;
-    private String descrição;
+    private String descricao;
 
-    public Inimigos(String nome, float ataque, float defesa, float vida, float agilidade, float gold, String descrição) {
+    public Inimigo(String nome, float ataque, float defesa, float vida, float agilidade, float gold, String descricao) {
         this.nome = nome;
         this.ataque = ataque;
         this.defesa = defesa;
         this.vida = vida;
         this.agilidade = agilidade;
         this.gold = gold;
-        this.descrição = descrição;
+        this.descricao = descricao;
     }
 
     public String getNome() {
@@ -43,8 +43,8 @@ public class Inimigos {
         return gold;
     }
 
-    public String getDescrição() {
-        return descrição;
+    public String getDescricao() {
+        return descricao;
     }
 
     public void setVida(float vida) {

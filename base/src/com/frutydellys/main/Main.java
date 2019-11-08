@@ -1,18 +1,17 @@
 package com.frutydellys.main;
 
-import com.frutydellys.maps.Locais;
+import com.frutydellys.maps.Local;
 
 import java.util.HashMap;
 
 public class Main {
+    public static HashMap<String, Local> locais = new HashMap<>();
+
     public static void main(String[] args) {
-
+        initializeLocais();
     }
-    void initializelocals() {
-        locais.put("Praça", new Locais("",null,null,null,null));
 
+    private static void initializeLocais() {
+        locais.put("Praça", new Local("",null,null,null,null));
     }
-    public HashMap<String, Locais> locais = new HashMap<>();
-
-
 }

@@ -1,17 +1,17 @@
 package com.frutydellys.maps;
 
-import com.frutydellys.characters.Inimigos;
+import com.frutydellys.characters.Inimigo;
 import com.frutydellys.characters.Npc;
 import com.frutydellys.items.Item;
 
-public class Locais {
+public class Local {
     String descricao;
-    Item itens[];
-    Inimigos inimigos[];
-    Npc npc[];
-    Locais saidas[];
+    Item[] itens;
+    Inimigo[] inimigos;
+    Npc[] npc;
+    Local[] saidas;
 
-    public Locais(String descricao, Item[] itens, Inimigos[] inimigos, Npc[] npc, Locais[] saidas) {
+    public Local(String descricao, Item[] itens, Inimigo[] inimigos, Npc[] npc, Local[] saidas) {
         this.descricao = descricao;
         this.itens = itens;
         this.inimigos = inimigos;
