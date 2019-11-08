@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Menus {
     Scanner sc = new Scanner(System.in);
-    private int mp, mj;
+    private int mp, mj, pause;
     public void menuPrincipal() {
         System.out.println("==============================");
         System.out.println("|         FRUTYDELLYS        |");
@@ -27,12 +27,12 @@ public class Menus {
     }
 
     public void menuInicioJogo() {
-        System.out.println("=======Iniciar jogo=======");
-        System.out.println("| [1] Jogar              |");
-        System.out.println("| [2] Mapa               |");
-        System.out.println("| [3] Ajuda              |");
-        System.out.println("| [4] Retornar           |");
-        System.out.println("==========================");
+        System.out.println("=========Iniciar jogo=========");
+        System.out.println("| [1] Jogar                  |");
+        System.out.println("| [2] Mapa                   |");
+        System.out.println("| [3] Ajuda                  |");
+        System.out.println("| [4] Sair                   |");
+        System.out.println("==============================");
         System.out.println(" >>> ");
         mj = sc.nextInt();
         while (mj < 1 || mj > 4) {
@@ -47,6 +47,18 @@ public class Menus {
         this.mj = mj;
     }
 
-
+    public void menuPause() {
+        System.out.println("============Pausa=============");
+        System.out.println("| [1] Voltar                 |");
+        System.out.println("| [2] Mapa                   |");
+        System.out.println("| [3] Sair                   |");
+        System.out.println("==============================");
+        System.out.println(" >>> ");
+        pause = sc.nextInt();
+        while (pause < 1 || pause > 3) {
+            System.out.print(" >>> ");
+            pause = sc.nextInt();
+        }
+    }
 }
 
