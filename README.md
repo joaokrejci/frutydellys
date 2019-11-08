@@ -1,2 +1,2 @@
 # Frutydellys
-RPG textual desenvolvido no curso de Java
+RPG textual desenvolvido no curso de Java.
