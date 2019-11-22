@@ -34,14 +34,14 @@ public class Main {
 
         locais.get("Praça").setSaidas(new Locais[]{locais.get("Bar"),locais.get("Igreja"),locais.get("Loja"),locais.get("Floresta"),locais.get("Batalha Final")});
         locais.get("Loja").setSaidas(new Locais[]{locais.get("Praça")});
-        //locais.get("Loja").setNpc();
+        locais.get("Loja").setNpc(new Npc[]{new Npc("Mercante", "Por algum motivo essa parece ser a única loja da cidade")});
         locais.get("Igreja").setSaidas(new Locais[]{locais.get("Praça"), locais.get("Campos de Treinamento")});
-        //locais.get("Igreja").setNpc();
+        locais.get("Igreja").setNpc(new Npc[]{new Npc("Padre Mário", "Mensageiro de Deus (segundo ele mesmo)")});
         locais.get("Campos de Treinamento").setSaidas(new Locais[]{locais.get("Igreja")});
-        locais.get("Campos de Treinamento").setNpc(new Npc[]{});
+        locais.get("Campos de Treinamento").setNpc(new Npc[]{new Npc("General Ironheart", "O maior cargo do local, parece que pode te quebrar ao meio facilmente"), new Npc("Soldado Cleiton","Ele parece prestativo")});
         locais.get("Campos de Treinamento").setInimigos(new Inimigo[]{new Inimigo("Boneco", 0, 100, 1, 0, 0, "Só um saco de pancadas", null)});
         locais.get("Bar").setSaidas(new Locais[]{locais.get("Praça")});
-        locais.get("Bar").setNpc(new Npc[]{});
+        locais.get("Bar").setNpc(new Npc[]{new Npc("Decim", "Esse bartender parece ter visto muita coisa"), new Npc("Thorin","Uma barba de respeito, porém bêbado demais pra isso"), new Npc("Bregolas", "Alto demais para passar pela porta, parece preocupado")});
         locais.get("Floresta").setSaidas(new Locais[]{locais.get("Praça"),locais.get("Ramificação A"),locais.get("Ramificação B"),locais.get("Ramificação C")});
         Inimigo lobo = new Inimigo("Lobo", 10, 2,25,5,10, "Lobo selvagem", null/*List.of(new Item("Pele de lobo", null))*/ );
         locais.get("Floresta").setInimigos(new Inimigo[]{lobo, lobo, lobo});
@@ -54,7 +54,7 @@ public class Main {
         locais.get("Ramificação C").setSaidas(new Locais[]{locais.get("Floresta"),locais.get("Ramificação B")});
         locais.get("Ramificação C").setInimigos(new Inimigo[]{lobo, lobo, lobo, lobo, lobo});
         locais.get("Caverna").setSaidas(new Locais[]{locais.get("Ramificação B")});
-        //locais.get("Caverna").setNpc();
+        locais.get("Caverna").setNpc(new Npc[]{new Npc("Gilwen", "Elfa machucada, irmã de Bregolas")});
         locais.get("Caverna").setInimigos(new Inimigo[]{goblin, goblin, goblin, goblin, goblin});
         Inimigo solDemonio = new Inimigo("Soldado Demônio", 30, 10, 80, 5, 0, "Um soldado do Rei Demônio", null);
         Inimigo reiDemônio = new Inimigo("Rei Demônio", 50, 20,300, 10,100000, "Quem diria que a batalha final seria contra seu próprio pai?",null);
