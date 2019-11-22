@@ -10,7 +10,7 @@ public class Main {
     public static void main(String[] args) {
 
     }
-    void inicializarNPC(){
+    void inicializarInimigos(){
         inimigos.put("Lobos", new Inimigo("Lobo",20,0,40,10,20,"Um animal de quatros patas,faminto por carne"));
         inimigos.put("Goblins", new Inimigo("Globin",35,15,50,5,40,"Um duende horrendo,quando Deus estava atoa, decidiu criar essa porcaria"));
         inimigos.put("Boneco", new Inimigo("Boneco de treino",0,5,100,0,0,"Um boneco de pano, feito para treinar"));
@@ -32,7 +32,7 @@ public class Main {
         locais.put("Batalha Final", new Locais("O exército de Demônios chegou, é hora de acabar com isso de uma vez por todas e provar seu valor", null, null,null,null));
     }
     public HashMap<String, Locais> locais = new HashMap<>();
-    public HashMap<String, Inimigo> inimigos = new HashMap<>();
+    public static HashMap<String, Inimigo> inimigos = new HashMap<>();
 
 
 }
