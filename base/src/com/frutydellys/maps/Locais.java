@@ -4,14 +4,14 @@ import com.frutydellys.characters.Inimigo;
 import com.frutydellys.characters.Npc;
 import com.frutydellys.items.Item;
 
-public class Local {
+public class Locais {
     String descricao;
     Item[] itens;
     Inimigo[] inimigos;
     Npc[] npc;
-    Local[] saidas;
+    Locais[] saidas;
 
-    public Local(String descricao, Item[] itens, Inimigo[] inimigos, Npc[] npc, Local[] saidas) {
+    public Locais(String descricao, Item[] itens, Inimigo[] inimigos, Npc[] npc, Locais[] saidas) {
         this.descricao = descricao;
         this.itens = itens;
         this.inimigos = inimigos;
