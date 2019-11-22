@@ -1,6 +1,10 @@
 package com.frutydellys.items;
 
-public class Item  extends Heroi{
+import com.frutydellys.characters.Heroi;
+
+import java.util.ArrayList;
+
+public class Item  extends Heroi {
     private String nmEquipamento;
     private TipoEquipamentoEnum tipoEquipamento;
 
@@ -8,6 +12,9 @@ public class Item  extends Heroi{
     private int velocidade;
     private int defesa;
 
+    public Item(String nome, float vida, ArrayList<Item> inventario) {
+        super(nome, vida, inventario);
+    }
 
 
     public String getNmEquipamento() {
@@ -36,17 +43,13 @@ public class Item  extends Heroi{
         this.magia = magia;
     }
 
-    public int getVelocidade() {
-        return velocidade;
-    }
+
 
     public void setVelocidade(int velocidade) {
         this.velocidade = velocidade;
     }
 
-    public int getDefesa() {
-        return defesa;
-    }
+
 
     public void setDefesa(int defesa) {
         this.defesa = defesa;
