@@ -82,7 +82,7 @@ public class Heroi {
     public void removerItem(Item a){
         inventario.remove(a);
     }
-    public void ataqueHeroi(Inimigo b){
+    public void ataqueHeroi(Inimigo b,Item item){
         if (b.getDefesa() >= ataque )
             System.out.println("O "+ nome +" acerta porém é muito fraco, seu merdinha!");
         else

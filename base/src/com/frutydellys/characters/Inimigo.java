@@ -55,4 +55,11 @@ public class Inimigo {
         vida -= ataque - defesa;
         return ataque  - defesa;
     }
+
+    public void ataqueInimigo(Heroi heroi){
+        if(heroi.getDefesa() > ataque){
+            System.out.println("O inimigo não conseguiu");
+        }
+    }
 }
+
