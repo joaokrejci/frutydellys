@@ -63,4 +63,11 @@ public class Inimigo {
         }
         return ataque  - defesa;
     }
+
+    public void ataqueInimigo(Heroi heroi){
+        if(heroi.getDefesa() > ataque){
+            System.out.println("O inimigo não conseguiu");
+        }
+    }
 }
+

@@ -3,7 +3,10 @@ package com.frutydellys.main;
 import com.frutydellys.characters.Inimigo;
 import com.frutydellys.characters.Loja;
 import com.frutydellys.characters.Npc;
+import com.frutydellys.items.Arma;
 import com.frutydellys.items.Item;
+import com.frutydellys.items.Pocao;
+import com.frutydellys.items.TipoEquipamentoEnum;
 import com.frutydellys.maps.Locais;
 
 import java.util.ArrayList;
@@ -22,7 +25,7 @@ public class Main {
         locais.put("Igreja", new Locais("É uma catedral enorme, com belos vitrais e um altar imponente, perto do altar você vê o Padre, ele parece estar te esperando", null, null, new Npc[1], new Locais[2]));
         locais.put("Campos de Treinamento", new Locais("Saindo da Igreja você se depara com os largos campos de treinamento e os soldados que estão se preparando para possível batalha, você avista o General, um Boneco de Treino e um Soldado de aparência amigável", null, new Inimigo[1], new Npc[2], new Locais[1]));
         locais.put("Bar", new Locais("É um bar meio escuro, que parece maior pelo lado de dentro, você avista algumas figuras estranhas, entre elas, um Elfo de aparência preocupada, um Anão que parece já ter bebido demais e um Barman que parece não ser muito expressivo",null,null,new Npc[3], new Locais[1]));
-        locais.put("Floresta", new Locais("Você está próximo à entrada da Grande Floresta, ela é um pouco escura e parece ficar mais densa quanto mais se adentra, você avista uma Árvore suspeita, um grupo de Lobos e três ramificações a serem seguidas", new Item[1], new Inimigo[3],null, new Locais[4]));
+        locais.put("Floresta", new Locais("Você está próximo à entrada da Grande Floresta, ela é um pouco escura e parece ficar mais densa quanto mais se adentra, você avista uma Árvore suspeita, um grupo de Lobos e três ramificações a serem seguidas", null, new Inimigo[3],null, new Locais[4]));
         locais.put("Ramificação A", new Locais("Você chega à algum tipo de lamaçal, dentro dele há vários Porcos selvagens, eles não parecem atacar",null, new Inimigo[5],null, new Locais[2]));
         locais.put("Ramificação B", new Locais("Você sente o cheiro de fumaça e avista uma fogueira, perto dela há dois Goblins, eles parecem sedentos por sangue",null, new Inimigo[2],null, new Locais[4]));
         locais.put("Ramificação C", new Locais("Mais adentro da floresta, você se encontra com um grupo maior de Lobos",null,new Inimigo[5],null, new Locais[2]));
@@ -57,7 +60,20 @@ public class Main {
         Inimigo reiDemônio = new Inimigo("Rei Demônio", 50, 20,300, 10,100000, "Quem diria que a batalha final seria contra seu próprio pai?",null);
         locais.get("Batalha Final").setInimigos(new Inimigo[]{solDemonio, solDemonio, solDemonio, solDemonio, solDemonio, solDemonio, solDemonio, solDemonio, solDemonio, solDemonio, solDemonio, solDemonio, solDemonio, solDemonio, reiDemônio});
     }
-    public static HashMap<String, Locais> locais = new HashMap<>();
+    void inicializaItens() {
+        Itens.put("Poção Escarlate", new Pocao("Poção Escarlate", TipoEquipamentoEnum.POCAO, 0, 50, 0));
+        Itens.put("Poção Prateada", new Pocao("Poção Prateada", TipoEquipamentoEnum.POCAO, 25, 0, 0));
+        Itens.put("Poção PrateadaPlus", new Pocao("Poção PrateadaPlus", TipoEquipamentoEnum.POCAO, 50, 0, 0));
+        Itens.put("Poção HeroiRelutante", new Pocao("Poção HeroiRelutante", TipoEquipamentoEnum.POCAO, 100, 0, 0));
+        Itens.put("Poção CONSTANTINE", new Pocao("Poção CONSTANTINE", TipoEquipamentoEnum.POCAO, 0, 100, 0));
+        Itens.put("Poção Muro Alto ", new Pocao("Poção Muro Alto ", TipoEquipamentoEnum.POCAO, 0, 0, 100));
+        Itens.put("Espada", new Arma("Espada", TipoEquipamentoEnum.ARMA, 50, 0));
+        Itens.put("Arco", new Arma("Arco", TipoEquipamentoEnum.ARMA, 50, 0));
+        Itens.put("Esculdo", new Arma("Esculdo", TipoEquipamentoEnum.ARMA, 0, 50));
 
+    }
+
+        public static HashMap<String, Locais> locais = new HashMap<>();
+        public static HashMap<String, Item> Itens= new HashMap<>();
 
 }
