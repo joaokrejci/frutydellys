@@ -4,14 +4,14 @@ import java.util.ArrayList;
 
 public class Heroi {
     private String nome ;
-    private enum  classe{GUERREIRO,MAGO,PISTOLEIRO,PALADINO,LADRAO}
-    private classe classe;
+    private enum  Classe{GUERREIRO,MAGO,PISTOLEIRO,PALADINO,LADRAO}
+    private Classe classe;
     private float vida;
     private float defesa;
     private float ataque;
-    private float agilidade;
+    private float velocidade;
     private float gold;
-    private float mana;
+
     private ArrayList<Item> inventario;
 
     public Heroi(String nome, float vida, ArrayList<Item> inventario) {
@@ -23,11 +23,11 @@ public class Heroi {
     public String getNome() {
         return nome;
     }
-    public Float getAgilidade(){
-        return agilidade;
+    public float getVelocidade(){
+        return velocidade;
     }
 
-    public Heroi.classe getClasse() {
+    public Classe getClasse() {
         return classe;
     }
 
@@ -47,15 +47,12 @@ public class Heroi {
         return gold;
     }
 
-    public float getMana() {
-        return mana;
-    }
 
     public ArrayList<Item> getInventario() {
         return inventario;
     }
 
-    public void setClasse(Heroi.classe classe) {
+    public void setClasse(Classe classe) {
         this.classe = classe;
     }
 
@@ -71,39 +68,36 @@ public class Heroi {
         this.ataque = ataque;
     }
 
-    public void setAgilidade(float agilidade){
-        this.agilidade = agilidade;
+    public void setVelocidade(float velocidade){
+        this.velocidade = velocidade;
     }
 
     public void setGold(float gold) {
-        this.gold = gold + this.gold;
+        this.gold += gold;
     }
 
-    public void setMana(float mana) {
-        this.mana = mana;
-    }
-
-    public void adicioarItem(Item a) {
+    public void adicionarItem(Item a) {
         inventario.add(a);
     }
     public void removerItem(Item a){
         inventario.remove(a);
     }
     public void ataqueHeroi(Inimigo b){
-        if (b.getDefesa() >= getAtaque() )
-            System.out.println("O "+ this.nome +" acerta porém é muito fraco, seu merdinha!");
+        if (b.getDefesa() >= ataque )
+            System.out.println("O "+ nome +" acerta porém é muito fraco, seu merdinha!");
         else
-            b.setVida(b.getVida() - (getAtaque() - b.getDefesa()));
-            System.out.println("O Herói causa "+(getAtaque() - b.getDefesa())+" de dano!");
+            System.out.println("O Herói causa "+ b.receberAtaque(ataque)+" de dano!");
 
     }
     public void defesaHeroi(Inimigo b){
-        if (getDefesa() >= b.getAtaque())
+        if (defesa >= b.getAtaque())
             System.out.println("Inimigo é fraco demais para causar dano");
         else
-            setVida(getVida() - (b.getAtaque()-getDefesa()));
-            System.out.println(this.nome+" recebe "+(b.getAtaque()-getDefesa())+" de dano");
+            setVida(vida - (b.getAtaque()-defesa));
+            System.out.println(nome+" recebe "+(b.getAtaque()-defesa)+" de dano");
     }
-
+//    public float recebeAtaque(){
+//
+//    }
 }
 
