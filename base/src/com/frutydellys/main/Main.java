@@ -8,6 +8,8 @@ import java.util.HashMap;
 public class Main {
     public static void main(String[] args) {
         initializelocals();
+
+        Game.gameLoop();
     }
     static void initializelocals() {
         locais.put("Praça", new Locais("Você vê uma bela praça com uma fonte no meio, uma Igreja, uma Loja de equipamentos e um Bar onde lê-se 'Quindecim'",null,null,null, new Locais[5]));

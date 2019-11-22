@@ -1,13 +1,15 @@
 package com.frutydellys.characters;
 import com.frutydellys.items.Item;
+import com.frutydellys.items.TipoEquipamentoEnum;
+
 import java.util.ArrayList;
 
 public class Loja {
     protected String nome;
     protected ArrayList<Item> estoque;
-    private Item.tipoEquipamentoEnum tipo;
+    private TipoEquipamentoEnum tipo;
 
-    public Loja(String nome, ArrayList<Item> estoque, tipoEquipamentoEnum tipo) {
+    public Loja(String nome, ArrayList<Item> estoque, TipoEquipamentoEnum tipo) {
         this.nome = nome;
         this.estoque = estoque;
         this.tipo = tipo;
@@ -26,8 +28,8 @@ public class Loja {
     public ArrayList<Item> retornarItem(){
 
         switch(tipo){
-            Case ARMA :System.out.println();
+            case ARMA :System.out.println();
         }
-
+        return null;
     }
 }
