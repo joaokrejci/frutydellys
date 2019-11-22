@@ -2,26 +2,26 @@ package com.frutydellys.characters;
 
 public class Npc {
     private String nome;
-    private String descrição;
+    private String descricao;
 
-    public Npc(String nome, String descrição) {
+    public Npc(String nome, String descricao) {
         this.nome = nome;
-        this.descrição = descrição;
+        this.descricao = descricao;
     }
 
     public String getNome() {
         return nome;
     }
 
-    public String getDescrição() {
-        return descrição;
+    public String getDescricao() {
+        return descricao;
     }
 
     public void setNome(String nome) {
         this.nome = nome;
     }
 
-    public void setDescrição(String descrição) {
-        this.descrição = descrição;
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 }

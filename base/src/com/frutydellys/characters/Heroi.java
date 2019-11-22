@@ -4,20 +4,20 @@ import java.util.ArrayList;
 
 public class Heroi {
     private String nome ;
-    private enum  classe{guerreiro,mago,pistoleiro,paladino,ladrão};
+    private enum  classe{GUERREIRO,MAGO,PISTOLEIRO,PALADINO,LADRAO}
     private classe classe;
-    private float vida = 100;
+    private float vida;
     private float defesa;
     private float ataque;
     private float agilidade;
     private float gold;
     private float mana;
-    private ArrayList<Item> inventário;
+    private ArrayList<Item> inventario;
 
-    public Heroi(String nome, float vida, ArrayList<Item> inventário) {
+    public Heroi(String nome, float vida, ArrayList<Item> inventario) {
         this.nome = nome;
         this.vida = vida;
-        this.inventário = inventário; //Itens iniciais, espada de madeira e capacete//
+        this.inventario = inventario; //Itens iniciais, espada de madeira e capacete//
     }
 
     public String getNome() {
@@ -51,8 +51,8 @@ public class Heroi {
         return mana;
     }
 
-    public ArrayList<Item> getInventário() {
-        return inventário;
+    public ArrayList<Item> getInventario() {
+        return inventario;
     }
 
     public void setClasse(Heroi.classe classe) {
@@ -84,20 +84,20 @@ public class Heroi {
     }
 
     public void adicioarItem(Item a) {
-        inventário.add(a);
+        inventario.add(a);
     }
     public void removerItem(Item a){
-        inventário.remove(a);
+        inventario.remove(a);
     }
-    public void ataqueHeroi(Inimigos b){
+    public void ataqueHeroi(Inimigo b){
         if (b.getDefesa() >= getAtaque() )
-            System.out.println("O"+ this.nome +"acerta porém é muito fraco, seu merdinha!");
+            System.out.println("O "+ this.nome +" acerta porém é muito fraco, seu merdinha!");
         else
             b.setVida(b.getVida() - (getAtaque() - b.getDefesa()));
             System.out.println("O Herói causa "+(getAtaque() - b.getDefesa())+" de dano!");
 
     }
-    public void defesaHeroi(Inimigos b){
+    public void defesaHeroi(Inimigo b){
         if (getDefesa() >= b.getAtaque())
             System.out.println("Inimigo é fraco demais para causar dano");
         else
