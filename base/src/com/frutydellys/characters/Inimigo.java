@@ -1,5 +1,9 @@
 package com.frutydellys.characters;
 
+import com.frutydellys.items.Item;
+
+import java.util.ArrayList;
+
 public class Inimigo {
     private String nome;
     private float ataque;
@@ -8,8 +12,9 @@ public class Inimigo {
     private float agilidade;
     private float gold;
     private String descricao;
+    private ArrayList<Item> drops;
 
-    public Inimigo(String nome, float ataque, float defesa, float vida, float agilidade, float gold, String descricao) {
+    public Inimigo(String nome, float ataque, float defesa, float vida, float agilidade, float gold, String descricao, ArrayList<Item> drops) {
         this.nome = nome;
         this.ataque = ataque;
         this.defesa = defesa;
@@ -17,6 +22,7 @@ public class Inimigo {
         this.agilidade = agilidade;
         this.gold = gold;
         this.descricao = descricao;
+        this.drops = drops;
     }
 
     public String getNome() {
@@ -52,7 +58,9 @@ public class Inimigo {
     }
 
     public float receberAtaque(float ataque){
-        vida -= ataque - defesa;
+        if(defesa<ataque) {
+            vida -= ataque - defesa;
+        }
         return ataque  - defesa;
     }
 }

@@ -6,7 +6,9 @@ import com.frutydellys.characters.Npc;
 import com.frutydellys.items.Item;
 import com.frutydellys.maps.Locais;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
@@ -34,21 +36,26 @@ public class Main {
         //locais.get("Igreja").setNpc();
         locais.get("Campos de Treinamento").setSaidas(new Locais[]{locais.get("Igreja")});
         locais.get("Campos de Treinamento").setNpc(new Npc[]{});
-        //locais.get("Campos de Treinamento").setInimigos();
+        locais.get("Campos de Treinamento").setInimigos(new Inimigo[]{new Inimigo("Boneco", 0, 100, 1, 0, 0, "Só um saco de pancadas", null)});
         locais.get("Bar").setSaidas(new Locais[]{locais.get("Praça")});
         locais.get("Bar").setNpc(new Npc[]{});
         locais.get("Floresta").setSaidas(new Locais[]{locais.get("Praça"),locais.get("Ramificação A"),locais.get("Ramificação B"),locais.get("Ramificação C")});
-        //locais.get("Floresta").setInimigos();
+        Inimigo lobo = new Inimigo("Lobo", 10, 2,25,5,10, "Lobo selvagem", null/*List.of(new Item("Pele de lobo", null))*/ );
+        locais.get("Floresta").setInimigos(new Inimigo[]{lobo, lobo, lobo});
         locais.get("Ramificação A").setSaidas(new Locais[]{locais.get("Floresta"),locais.get("Ramificação B")});
-        //locais.get("Ramificação A").setInimigos();
+        Inimigo porco = new Inimigo("Porco", 0, 0, 20, 1, 5, "A barriga dele é gostosa", null);
+        locais.get("Ramificação A").setInimigos(new Inimigo[]{porco, porco, porco, porco, porco});
         locais.get("Ramificação B").setSaidas(new Locais[]{locais.get("Floresta"),locais.get("Ramificação A"),locais.get("Ramificação C"),locais.get("Caverna")});
-        //locais.get("Ramificação B").setInimigos();
+        Inimigo goblin = new Inimigo("Goblin", 20, 5, 50, 3, 20, "Criatura maligna", null);
+        locais.get("Ramificação B").setInimigos(new Inimigo[]{goblin, goblin});
         locais.get("Ramificação C").setSaidas(new Locais[]{locais.get("Floresta"),locais.get("Ramificação B")});
-        //locais.get("Ramificação C").setInimigos();
+        locais.get("Ramificação C").setInimigos(new Inimigo[]{lobo, lobo, lobo, lobo, lobo});
         locais.get("Caverna").setSaidas(new Locais[]{locais.get("Ramificação B")});
         //locais.get("Caverna").setNpc();
-        //locais.get("Caverna").setInimigos();
-        //locais.get("Batalha Final").setInimigos();
+        locais.get("Caverna").setInimigos(new Inimigo[]{goblin, goblin, goblin, goblin, goblin});
+        Inimigo solDemonio = new Inimigo("Soldado Demônio", 30, 10, 80, 5, 0, "Um soldado do Rei Demônio", null);
+        Inimigo reiDemônio = new Inimigo("Rei Demônio", 50, 20,300, 10,100000, "Quem diria que a batalha final seria contra seu próprio pai?",null);
+        locais.get("Batalha Final").setInimigos(new Inimigo[]{solDemonio, solDemonio, solDemonio, solDemonio, solDemonio, solDemonio, solDemonio, solDemonio, solDemonio, solDemonio, solDemonio, solDemonio, solDemonio, solDemonio, reiDemônio});
     }
     public static HashMap<String, Locais> locais = new HashMap<>();
 
