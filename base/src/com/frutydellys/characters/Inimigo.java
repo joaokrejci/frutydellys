@@ -50,4 +50,9 @@ public class Inimigo {
     public void setVida(float vida) {
         this.vida = vida;
     }
+
+    public float receberAtaque(float ataque){
+        vida -= ataque - defesa;
+        return ataque  - defesa;
+    }
 }
