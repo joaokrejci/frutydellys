@@ -2,37 +2,71 @@ package com.frutydellys.main;
 
 import com.frutydellys.characters.Inimigo;
 import com.frutydellys.characters.Loja;
+import com.frutydellys.characters.Npc;
+import com.frutydellys.items.Arma;
+import com.frutydellys.items.Item;
+import com.frutydellys.items.Pocao;
+import com.frutydellys.items.TipoEquipamentoEnum;
 import com.frutydellys.maps.Locais;
 
 import java.util.HashMap;
 
 public class Main {
     public static void main(String[] args) {
+        initializelocals();
+
+        Game.gameLoop();
+    }
+    static void initializelocals() {
+        locais.put("Praça", new Locais("Você vê uma bela praça com uma fonte no meio, uma Igreja, uma Loja de equipamentos e um Bar onde lê-se 'Quindecim'",null,null,null, new Locais[5]));
+        locais.put("Loja", new Locais("É uma loja meio bagunçada, mas parece que será útil, o mercador parece simpático", null, null, new Npc[1], new Locais[1]));
+        locais.put("Igreja", new Locais("É uma catedral enorme, com belos vitrais e um altar imponente, perto do altar você vê o Padre, ele parece estar te esperando", null, null, new Npc[1], new Locais[2]));
+        locais.put("Campos de Treinamento", new Locais("Saindo da Igreja você se depara com os largos campos de treinamento e os soldados que estão se preparando para possível batalha, você avista o General, um Boneco de Treino e um Soldado de aparência amigável", null, new Inimigo[1], new Npc[2], new Locais[1]));
+        locais.put("Bar", new Locais("É um bar meio escuro, que parece maior pelo lado de dentro, você avista algumas figuras estranhas, entre elas, um Elfo de aparência preocupada, um Anão que parece já ter bebido demais e um Barman que parece não ser muito expressivo",null,null,new Npc[3], new Locais[1]));
+        locais.put("Floresta", new Locais("Você está próximo à entrada da Grande Floresta, ela é um pouco escura e parece ficar mais densa quanto mais se adentra, você avista uma Árvore suspeita, um grupo de Lobos e três ramificações a serem seguidas", null, new Inimigo[3],null, new Locais[4]));
+        locais.put("Ramificação A", new Locais("Você chega à algum tipo de lamaçal, dentro dele há vários Porcos selvagens, eles não parecem atacar",null, new Inimigo[5],null, new Locais[2]));
+        locais.put("Ramificação B", new Locais("Você sente o cheiro de fumaça e avista uma fogueira, perto dela há dois Goblins, eles parecem sedentos por sangue",null, new Inimigo[2],null, new Locais[4]));
+        locais.put("Ramificação C", new Locais("Mais adentro da floresta, você se encontra com um grupo maior de Lobos",null,new Inimigo[5],null, new Locais[2]));
+        locais.put("Caverna", new Locais("Seguindo os rastros dos Goblins, você encontra uma caverna, entrando nela você acha um grupo de Goblins e no fundo da caverna, uma linda Elfa presa",null, new Inimigo[6],new Npc[1], new Locais[1]));
+        locais.put("Batalha Final", new Locais("O exército de Demônios chegou, é hora de acabar com isso de uma vez por todas e provar seu valor", null, new Inimigo[15],null,null));
+
+        locais.get("Praça").setSaidas(new Locais[]{locais.get("Bar"),locais.get("Igreja"),locais.get("Loja"),locais.get("Floresta"),locais.get("Batalha Final")});
+        locais.get("Loja").setSaidas(new Locais[]{locais.get("Praça")});
+        //locais.get("Loja").setNpc();
+        locais.get("Igreja").setSaidas(new Locais[]{locais.get("Praça"), locais.get("Campos de Treinamento")});
+        //locais.get("Igreja").setNpc();
+        locais.get("Campos de Treinamento").setSaidas(new Locais[]{locais.get("Igreja")});
+        locais.get("Campos de Treinamento").setNpc(new Npc[]{});
+        //locais.get("Campos de Treinamento").setInimigos();
+        locais.get("Bar").setSaidas(new Locais[]{locais.get("Praça")});
+        locais.get("Bar").setNpc(new Npc[]{});
+        locais.get("Floresta").setSaidas(new Locais[]{locais.get("Praça"),locais.get("Ramificação A"),locais.get("Ramificação B"),locais.get("Ramificação C")});
+        //locais.get("Floresta").setInimigos();
+        locais.get("Ramificação A").setSaidas(new Locais[]{locais.get("Floresta"),locais.get("Ramificação B")});
+        //locais.get("Ramificação A").setInimigos();
+        locais.get("Ramificação B").setSaidas(new Locais[]{locais.get("Floresta"),locais.get("Ramificação A"),locais.get("Ramificação C"),locais.get("Caverna")});
+        //locais.get("Ramificação B").setInimigos();
+        locais.get("Ramificação C").setSaidas(new Locais[]{locais.get("Floresta"),locais.get("Ramificação B")});
+        //locais.get("Ramificação C").setInimigos();
+        locais.get("Caverna").setSaidas(new Locais[]{locais.get("Ramificação B")});
+        //locais.get("Caverna").setNpc();
+        //locais.get("Caverna").setInimigos();
+        //locais.get("Batalha Final").setInimigos();
+    }
+    void inicializaItens() {
+        Itens.put("Poção Escarlate", new Pocao("Poção Escarlate", TipoEquipamentoEnum.POCAO, 0, 50, 0));
+        Itens.put("Poção Prateada", new Pocao("Poção Prateada", TipoEquipamentoEnum.POCAO, 25, 0, 0));
+        Itens.put("Poção PrateadaPlus", new Pocao("Poção PrateadaPlus", TipoEquipamentoEnum.POCAO, 50, 0, 0));
+        Itens.put("Poção HeroiRelutante", new Pocao("Poção HeroiRelutante", TipoEquipamentoEnum.POCAO, 100, 0, 0));
+        Itens.put("Poção CONSTANTINE", new Pocao("Poção CONSTANTINE", TipoEquipamentoEnum.POCAO, 0, 100, 0));
+        Itens.put("Poção Muro Alto ", new Pocao("Poção Muro Alto ", TipoEquipamentoEnum.POCAO, 0, 0, 100));
+        Itens.put("Espada", new Arma("Espada", TipoEquipamentoEnum.ARMA, 50, 0));
+        Itens.put("Arco", new Arma("Arco", TipoEquipamentoEnum.ARMA, 50, 0));
+        Itens.put("Esculdo", new Arma("Esculdo", TipoEquipamentoEnum.ARMA, 0, 50));
 
     }
-    void inicializarInimigos(){
-        inimigos.put("Lobos", new Inimigo("Lobo",20,0,40,10,20,"Um animal de quatros patas,faminto por carne"));
-        inimigos.put("Goblins", new Inimigo("Globin",35,15,50,5,40,"Um duende horrendo,quando Deus estava atoa, decidiu criar essa porcaria"));
-        inimigos.put("Boneco", new Inimigo("Boneco de treino",0,5,100,0,0,"Um boneco de pano, feito para treinar"));
-        inimigos.put("Demonio", new Inimigo("Demonio",50,40,60,30,80,"Uma alma amaldiçoada, obrigada a servir pela eternidade ao rei"));
-        inimigos.put("Rei Demonio",new Inimigo("Rei Demonio",100,70,120,50,1000,"O rei do submundo, com uma armadura feita com o saque dos seu inimigos"));
-        inimigos.put("Porcos", new Inimigo("Porco",5,0,15,0,5,"Just a porco"));
-    }
-    void initializelocals() {
-        locais.put("Praça", new Locais("Você vê uma bela praça com uma fonte no meio, uma Igreja, uma Loja de equipamentos e um Bar onde lê-se 'Quindecim'",null,null,null, null));
-        locais.put("Loja", new Locais("É uma loja meio bagunçada, mas parece que será útil, o mercador parece simpático", null, null, null, null));
-        locais.put("Igreja", new Locais("É uma catedral enorme, com belos vitrais e um altar imponente, perto do altar você vê o Padre, ele parece estar te esperando", null, null, null, null));
-        locais.put("Campos de Treinamento", new Locais("Saindo da Igreja você se depara com os largos campos de treinamento e os soldados que estão se preparando para possível batalha, você avista o General, um Boneco de Treino e um Soldado de aparência amigável", null, null, null, null));
-        locais.put("Bar", new Locais("É um bar meio escuro, que parece maior pelo lado de dentro, você avista algumas figuras estranhas, entre elas, um Elfo de aparência preocupada, um Anão que parece já ter bebido demais e um Barman que parece não ser muito expressivo",null,null,null,null));
-        locais.put("Floresta", new Locais("Você está próximo à entrada da Grande Floresta, ela é um pouco escura e parece ficar mais densa quanto mais se adentra, você avista uma Árvore suspeita, um grupo de Lobos e três ramificações a serem seguidas", null,null,null,null));
-        locais.put("Ramificação A", new Locais("Você chega à algum tipo de lamaçal, dentro dele há vários Porcos selvagens, eles não parecem atacar",null,null,null,null));
-        locais.put("Ramificação B", new Locais("Você sente o cheiro de fumaça e avista uma fogueira, perto dela há dois Goblins, eles parecem sedentos por sangue",null,null,null,null));
-        locais.put("Ramificação C", new Locais("Mais adentro da floresta, você se encontra com outro grupo de Lobos",null,null,null,null));
-        locais.put("Caverna", new Locais("Seguindo os rastros dos Goblins, você encontra uma caverna, entrando nela você acha um grupo ainda maior de Goblins e no fundo da caverna, uma linda Elfa presa",null,null,null,null));
-        locais.put("Batalha Final", new Locais("O exército de Demônios chegou, é hora de acabar com isso de uma vez por todas e provar seu valor", null, null,null,null));
-    }
-    public HashMap<String, Locais> locais = new HashMap<>();
-    public static HashMap<String, Inimigo> inimigos = new HashMap<>();
 
+        public static HashMap<String, Locais> locais = new HashMap<>();
+        public static HashMap<String, Item> Itens= new HashMap<>();
 
 }

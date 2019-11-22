@@ -4,14 +4,16 @@ import com.frutydellys.characters.Inimigo;
 import com.frutydellys.characters.Npc;
 import com.frutydellys.items.Item;
 
+import java.util.ArrayList;
+
 public class Locais {
     String descricao;
-    Item[] itens;
+    ArrayList<Item> itens;
     Inimigo[] inimigos;
     Npc[] npc;
     Locais[] saidas;
 
-    public Locais(String descricao, Item[] itens, Inimigo[] inimigos, Npc[] npc, Locais[] saidas) {
+    public Locais(String descricao, ArrayList<Item> itens, Inimigo[] inimigos, Npc[] npc, Locais[] saidas) {
         this.descricao = descricao;
         this.itens = itens;
         this.inimigos = inimigos;
@@ -23,11 +25,11 @@ public class Locais {
         this.descricao = descricao;
     }
 
-    public Item[] getItens() {
+    public ArrayList<Item> getItens() {
         return itens;
     }
 
-    public void setItens(Item[] itens) {
+    public void setItens(ArrayList<Item> itens) {
         this.itens = itens;
     }
 
