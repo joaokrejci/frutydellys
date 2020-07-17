@@ -2,6 +2,9 @@ package com.frutydellys.ui;
 
 import java.util.Scanner;
 
+/*
+    Classe responsável pelos Menus
+*/
 public class Menus {
     Scanner sc = new Scanner(System.in);
     private int mp, mj, pause;
